@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 80px;
+  padding: 0 40px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.App-logo {
+  height: 80px;
+  margin-right: 40px;
+}
+
+.App-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.App-nav-item {
+  width: 80px;
+  display: inline-flex;
+  list-style: none;
+}
+
+.App-nav-item a {
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+}
