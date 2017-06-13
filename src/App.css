@@ -30,7 +30,11 @@
 }
 
 .App-nav-item a {
-  color: #ffffff;
+  color: #fff;
   font-size: 18px;
   text-decoration: none;
+}
+
+.App-nav-item.active a {
+  text-decoration: underline;
 }
