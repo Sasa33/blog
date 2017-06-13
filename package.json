@@ -1,6 +1,6 @@
 {
   "name": "Sasa33.github.io",
-  "homepage": "http://sasa33.github.io/Sasa33.github.io.git",
+  "homepage": "https://sasa33.github.io/blog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy" : "npm run build && master -d build",
+    "deploy" : "npm run build && gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
