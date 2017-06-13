@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NavItem from './NavItem'
+import logo from '../logo.jpeg';
 
 const navs = [
     {
@@ -24,9 +25,12 @@ class Navigation extends Component {
             <NavItem title={nav.title} linkTo={nav.url} style={this.props.active === nav.ref ? 'active' : ''} />
         ))
         return (
-            <ul className="App-nav">
-                {navItems}
-            </ul>
+            <div className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <ul className="App-nav">
+                    {navItems}
+                </ul>
+            </div>
         )
     }
 

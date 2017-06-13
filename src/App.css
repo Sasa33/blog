@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #222;
-  height: 80px;
+  height: 61px;
   padding: 0 40px;
   color: white;
   display: flex;
@@ -13,8 +13,7 @@
 }
 
 .App-logo {
-  height: 80px;
-  margin-right: 40px;
+  height: 61px;
 }
 
 .App-nav {
@@ -24,17 +23,24 @@
 }
 
 .App-nav-item {
-  width: 80px;
+  justify-content: center;
+  align-items: center;
   display: inline-flex;
   list-style: none;
 }
 
+.App-nav-item:hover, .App-nav-item.active {
+  background-color: #fff;
+}
+
 .App-nav-item a {
+  padding: 20px 40px;
   color: #fff;
   font-size: 18px;
   text-decoration: none;
 }
 
-.App-nav-item.active a {
-  text-decoration: underline;
+.App-nav-item:hover a, .App-nav-item.active a{
+  color: #000;
+  font-weight: bold;
 }
