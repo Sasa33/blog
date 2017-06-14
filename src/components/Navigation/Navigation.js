@@ -10,6 +10,11 @@ const navs = [
         ref: 'home'
     },
     {
+        url: '/cartoons',
+        title: 'Cartoons',
+        ref: 'cartoons'
+    },
+    {
         url: '/about',
         title: 'About me',
         ref: 'about'
