@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NavItem from './NavItem'
-import logo from '../logo.jpeg';
+import logo from '../../logo.jpeg';
+import './style.css'
 
 const navs = [
     {
@@ -16,10 +17,6 @@ const navs = [
 ];
 
 class Navigation extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
-
     render() {
         const navItems = navs.map((nav) => (
             <NavItem title={nav.title} linkTo={nav.url} style={this.props.active === nav.ref ? 'active' : ''} />

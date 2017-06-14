@@ -1,0 +1,27 @@
+.App-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.App-nav-item {
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+}
+
+.App-nav-item:hover, .App-nav-item.active {
+    background-color: #fff;
+}
+
+.App-nav-item a {
+    padding: 20px 40px;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.App-nav-item:hover a, .App-nav-item.active a{
+    color: #000;
+    font-weight: bold;
+}
