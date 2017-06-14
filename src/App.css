@@ -4,7 +4,6 @@
 
 .App-header {
   background-color: #222;
-  height: 61px;
   padding: 0 40px;
   color: white;
   display: flex;
@@ -13,7 +12,8 @@
 }
 
 .App-logo {
-  height: 61px;
+  height: 58px;
+  margin-right: 40px;
 }
 
 .App-nav {
@@ -26,7 +26,6 @@
   justify-content: center;
   align-items: center;
   display: inline-flex;
-  list-style: none;
 }
 
 .App-nav-item:hover, .App-nav-item.active {
