@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 class NavItem extends Component {
     render() {
-        const activeClass = this.props.style
+        const { title, linkTo, activeClass } = this.props;
 
         return (
             <li className={"App-nav-item " + activeClass}>
-                <Link to={this.props.linkTo}>{this.props.title}</Link>
+                <Link to={linkTo}>{title}</Link>
             </li>
         )
     }
