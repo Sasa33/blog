@@ -1,3 +1,7 @@
+p {
+  margin-bottom: 10px !important;
+}
+
 .App {
   text-align: center;
 }
@@ -14,4 +18,99 @@
 .App-logo {
   height: 58px;
   margin-right: 40px;
+}
+
+.timeline {
+  padding-bottom: 50px;
+  background-color: #000;
+}
+
+.timeline ul li {
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: #fff;
+}
+
+.timeline ul li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+
+.timeline ul li div.Cartoon-container {
+  position: relative;
+  bottom: 0;
+  width: 350px;
+  height: 145px;
+  padding: 15px;
+  background: #78c2c4;
+}
+
+.timeline ul li div.Cartoon-container::before {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline ul li:nth-child(odd) div.Cartoon-container {
+  left: 45px;
+}
+
+.timeline ul li:nth-child(odd) div.Cartoon-container::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #78c2c4 transparent transparent;
+}
+
+.timeline ul li:nth-child(even) div.Cartoon-container {
+  left: -419px;
+}
+
+.timeline ul li:nth-child(even) div.Cartoon-container::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #78c2c4;
+}
+
+.timeline ul li div time {
+  display: block;
+}
+
+.timeline ul li div img {
+  width: 100px;
+}
+
+.timeline ul li div .Cartoon-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.timeline ul li:nth-child(odd) div time {
+  position: relative;
+  display: inline;
+  left: -75px;
+  bottom: 20px;
+  z-index: 100;
+}
+
+.timeline ul li:nth-child(even) div time {
+  position: relative;
+  display: inline;
+  left: 390px;
+  bottom: 20px;
+  z-index: 100;
 }

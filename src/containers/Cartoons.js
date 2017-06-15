@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 
 // @connect(
-//     state => ({cartoons: state.cartoonss}),
+//     state => ({cartoons: state.cartoons}),
 //     dispatch => bindActionCreators(cartoonActions, dispatch)
 // )
 class Cartoons extends Component {
@@ -19,10 +19,15 @@ class Cartoons extends Component {
         const cartoons = this.props.cartoons.map((cartoon, index) => {
             return (
                 <li key={index}>
-                    <img src={cartoon.imgURL} alt={cartoon.title} />
-                    <div>
-                        <p>{cartoon.title}</p>
-                        <p>{cartoon.cnTitle} &nbsp; {cartoon.jpTitle}</p>
+                    <div className="Cartoon-container">
+                        <div className="Cartoon-info">
+                            <img src={cartoon.imgURL} alt={cartoon.title} />
+                            <div>
+                                <p>{cartoon.title}</p>
+                                <p>{cartoon.cnTitle} &nbsp; {cartoon.jpTitle}</p>
+                            </div>
+                        </div>
+                        <time>{cartoon.year}</time>
                     </div>
                 </li>
             )
@@ -31,8 +36,9 @@ class Cartoons extends Component {
         return (
             <div className="Cartoons">
                 <Navigation active="cartoons"/>
-                <div>This page will list all the cartoons I have watched!</div>
-                <ul>{cartoons}</ul>
+                <section className="timeline">
+                    <ul>{cartoons}</ul>
+                </section>
             </div>
         );
     }
