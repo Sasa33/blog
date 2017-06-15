@@ -42,7 +42,7 @@ p {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: inherit;
+  background-color: #fedfe1;
 }
 
 
@@ -52,7 +52,7 @@ p {
   width: 350px;
   height: 145px;
   padding: 15px;
-  background: #78c2c4;
+  background: #fedfe1;
 }
 
 .timeline ul li div.Cartoon-container::before {
@@ -71,7 +71,7 @@ p {
 .timeline ul li:nth-child(odd) div.Cartoon-container::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
-  border-color: transparent #78c2c4 transparent transparent;
+  border-color: transparent #fedfe1 transparent transparent;
 }
 
 .timeline ul li:nth-child(even) div.Cartoon-container {
@@ -81,7 +81,7 @@ p {
 .timeline ul li:nth-child(even) div.Cartoon-container::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #78c2c4;
+  border-color: transparent transparent transparent #fedfe1;
 }
 
 .timeline ul li div time {
@@ -93,6 +93,7 @@ p {
 }
 
 .timeline ul li div .Cartoon-info {
+  height: 142px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
