@@ -19,9 +19,11 @@ class Cartoons extends Component {
         const cartoons = this.props.cartoons.map((cartoon, index) => {
             return (
                 <li key={index}>
-                    <p>{cartoon.title}</p>
-                    <p>{cartoon.year}</p>
-                    <br/>
+                    <img src={cartoon.imgURL} alt={cartoon.title} />
+                    <div>
+                        <p>{cartoon.title}</p>
+                        <p>{cartoon.cnTitle} &nbsp; {cartoon.jpTitle}</p>
+                    </div>
                 </li>
             )
         });
