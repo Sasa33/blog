@@ -36,7 +36,7 @@ class App extends Component {
     }
 
     setSearchResults(result) {
-        const oldHits = this.state.result ? this.state.result.hits : [];
+        const oldHits = result.page !== 0 ? this.state.result.hits : [];
         this.setState({
             result: {
                 hits: [
