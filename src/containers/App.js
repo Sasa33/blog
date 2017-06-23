@@ -4,6 +4,12 @@ import Navigation from "../components/Navigation/Navigation";
 import Search from '../components/Search/Search'
 import Table from '../components/Table/Table'
 
+const PATH_BASE = 'https://hn.algolia.com/api/v1';
+const PATH_SEARCH = '/search';
+const PARAM_SEARCH = 'query=';
+const PARAM_PAGE = 'page=';
+const DEFAULT_PAGE = 0;
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -18,20 +24,27 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.fetchSearchResult();
+        this.fetchSearchResult(DEFAULT_PAGE);
     }
 
-    fetchSearchResult() {
+    fetchSearchResult(page) {
         const { searchItem } = this.state;
-        const url = `https://hn.algolia.com/api/v1/search?query=${searchItem}`;
+        const url = `${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchItem}&${PARAM_PAGE}${page}`;
         fetch(url)
             .then((response) => response.json())
             .then(result => this.setSearchResults(result))
     }
 
     setSearchResults(result) {
+        const oldHits = this.state.result ? this.state.result.hits : [];
         this.setState({
-            result
+            result: {
+                hits: [
+                    ...oldHits,
+                    ...result.hits
+                ],
+                page: result.page
+            }
         })
     }
 
@@ -42,7 +55,7 @@ class App extends Component {
     }
 
     onSearchSubmit(e) {
-        this.fetchSearchResult();
+        this.fetchSearchResult(DEFAULT_PAGE);
         e.preventDefault()
     }
 
@@ -59,7 +72,14 @@ class App extends Component {
                         Search
                     </Search>
                     {
-                        result && <Table list={result.hits} />
+                        result && (
+                            <div className="Search-result">
+                                <Table list={result.hits} />
+                                <button onClick={() => this.fetchSearchResult(result.page + 1)}>
+                                    Load More
+                                </button>
+                            </div>
+                        )
                     }
                 </div>
             </div>
