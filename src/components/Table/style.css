@@ -1,8 +1,17 @@
+.Table {
+    margin-bottom: 100px;
+}
+
+.Table button {
+    width: 100px;
+    height: 40px;
+}
+
 .Table-item {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.Table-item span {
+.Table-header span, .Table-item span {
     margin-right: 10px;
 }

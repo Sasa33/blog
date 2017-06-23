@@ -115,13 +115,3 @@ p {
   bottom: 20px;
   z-index: 100;
 }
-
-
-.Search-result {
-  margin-bottom: 100px;
-}
-
-.Search-result button {
-  width: 100px;
-  height: 40px;
-}

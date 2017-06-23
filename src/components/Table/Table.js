@@ -1,8 +1,14 @@
 import React from 'react'
 import './style.css'
 
-const Table = ({ list }) => (
+const Table = ({ list, loadMore, nextPage }) => (
     <div className="Table">
+        <div className="Table-header">
+            <span>Title</span>
+            <span>Author</span>
+            <span>Num of Comments</span>
+            <span>Points</span>
+        </div>
         { list.map(item =>
             <div key={item.objectID} className="Table-item">
                 <span>
@@ -13,6 +19,9 @@ const Table = ({ list }) => (
                 <span>{item.points}</span>
             </div>
         )}
+        <button onClick={() => loadMore(nextPage)}>
+            Load More
+        </button>
     </div>
 );
 

@@ -21,6 +21,7 @@ class App extends Component {
 
         this.onSearchChange = this.onSearchChange.bind(this);
         this.onSearchSubmit = this.onSearchSubmit.bind(this);
+        this.fetchSearchResult = this.fetchSearchResult.bind(this);
     }
 
     componentDidMount() {
@@ -72,14 +73,9 @@ class App extends Component {
                         Search
                     </Search>
                     {
-                        result && (
-                            <div className="Search-result">
-                                <Table list={result.hits} />
-                                <button onClick={() => this.fetchSearchResult(result.page + 1)}>
-                                    Load More
-                                </button>
-                            </div>
-                        )
+                        result && <Table list={result.hits}
+                                         loadMore={this.fetchSearchResult}
+                                         nextPage={result.page + 1} />
                     }
                 </div>
             </div>
