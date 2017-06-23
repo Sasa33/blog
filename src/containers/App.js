@@ -10,7 +10,7 @@ class App extends Component {
 
         this.state = {
             searchItem: 'react',
-            result: []
+            result: null
         };
 
         this.onSearchChange = this.onSearchChange.bind(this);
@@ -26,7 +26,7 @@ class App extends Component {
         const url = `https://hn.algolia.com/api/v1/search?query=${searchItem}`;
         fetch(url)
             .then((response) => response.json())
-            .then(result => this.setSearchResults(result.hits))
+            .then(result => this.setSearchResults(result))
     }
 
     setSearchResults(result) {
@@ -58,7 +58,9 @@ class App extends Component {
                             onSubmit={this.onSearchSubmit}>
                         Search
                     </Search>
-                    <Table list={result} />
+                    {
+                        result && <Table list={result.hits} />
+                    }
                 </div>
             </div>
         );
