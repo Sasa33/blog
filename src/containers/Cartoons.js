@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from "../components/Navigation/Navigation";
+import Cartoon from "../components/CartoonCard/Cartoon";
 import * as cartoonActions from '../actions/cartoons'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -18,18 +19,7 @@ class Cartoons extends Component {
     render() {
         const cartoons = this.props.cartoons.map((cartoon, index) => {
             return (
-                <li key={index}>
-                    <div className="Cartoon-container">
-                        <div className="Cartoon-info">
-                            <img src={cartoon.imgURL} alt={cartoon.title} />
-                            <div>
-                                <p>{cartoon.title}</p>
-                                <p>{cartoon.cnTitle} &nbsp; {cartoon.jpTitle}</p>
-                            </div>
-                        </div>
-                        <time>{cartoon.year}</time>
-                    </div>
-                </li>
+                <Cartoon index={index} cartoon={cartoon} />
             )
         });
         console.log(cartoons);
