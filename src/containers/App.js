@@ -18,7 +18,12 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const url = `https://hn.algolia.com/api/v1/search?query=${this.state.searchItem}`;
+        this.fetchSearchResult();
+    }
+
+    fetchSearchResult() {
+        const { searchItem } = this.state;
+        const url = `https://hn.algolia.com/api/v1/search?query=${searchItem}`;
         fetch(url)
             .then((response) => response.json())
             .then(result => this.setSearchResults(result.hits))
@@ -37,11 +42,7 @@ class App extends Component {
     }
 
     onSearchSubmit(e) {
-        console.log(this.state.searchItem)
-        const url = `https://hn.algolia.com/api/v1/search?query=${this.state.searchItem}`;
-        fetch(url)
-            .then((response) => response.json())
-            .then(result => this.setSearchResults(result.hits))
+        this.fetchSearchResult();
         e.preventDefault()
     }
 
