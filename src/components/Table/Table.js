@@ -1,9 +1,10 @@
 import React from 'react'
+import './style.css'
 
 const Table = ({ list }) => (
-    <div>
+    <div className="Table">
         { list.map(item =>
-            <div key={item.objectID}>
+            <div key={item.objectID} className="Table-item">
                 <span>
                   <a href={item.url}>{item.title}</a>
                 </span>
