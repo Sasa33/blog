@@ -1,17 +1,21 @@
-.Table {
-    margin-bottom: 100px;
+table.Search-result {
+    margin: 0 auto 100px;
+    text-align: left;
 }
 
-.Table button {
-    width: 100px;
-    height: 40px;
-}
-
-.Table-item {
+table tr {
     margin-top: 20px;
     margin-bottom: 20px;
+    line-height: 2;
 }
 
-.Table-header span, .Table-item span {
-    margin-right: 10px;
+table tr th, table tr td {
+    padding-right: 40px;
+}
+
+table button {
+    width: 100px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 400px;
 }
