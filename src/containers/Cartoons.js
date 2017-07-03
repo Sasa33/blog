@@ -22,7 +22,6 @@ class Cartoons extends Component {
                 <Cartoon index={index} cartoon={cartoon} />
             )
         });
-        console.log(cartoons);
         return (
             <div className="Cartoons">
                 <Navigation active="cartoons"/>
