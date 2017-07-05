@@ -3,12 +3,11 @@ import './App.css';
 import Navigation from "../components/Navigation/Navigation";
 import Search from '../components/Search/Search'
 import Table from '../components/Table/Table'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as newsActions from '../actions/news'
 
-const PATH_BASE = 'https://hn.algolia.com/api/v1';
-const PATH_SEARCH = '/search';
-const PARAM_SEARCH = 'query=';
-const PARAM_PAGE = 'page=';
-const DEFAULT_PAGE = 0;
+export const DEFAULT_PAGE = 0;
 
 class App extends Component {
     constructor(props) {
@@ -16,7 +15,7 @@ class App extends Component {
 
         this.state = {
             searchItem: 'react',
-            result: null
+            searchKey: ''
         };
 
         this.onSearchChange = this.onSearchChange.bind(this);
@@ -30,23 +29,8 @@ class App extends Component {
 
     fetchSearchResult(page) {
         const { searchItem } = this.state;
-        const url = `${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchItem}&${PARAM_PAGE}${page}`;
-        fetch(url)
-            .then((response) => response.json())
-            .then(result => this.setSearchResults(result))
-    }
-
-    setSearchResults(result) {
-        const oldHits = result.page !== 0 ? this.state.result.hits : [];
-        this.setState({
-            result: {
-                hits: [
-                    ...oldHits,
-                    ...result.hits
-                ],
-                page: result.page
-            }
-        })
+        this.setState({ searchKey: searchItem });
+        this.props.actions.fetchNews(searchItem, page);
     }
 
     onSearchChange(text) {
@@ -61,7 +45,8 @@ class App extends Component {
     }
 
     render() {
-        const { searchItem, result } = this.state;
+        const { searchItem, searchKey } = this.state;
+        const result = this.props.news[searchKey];
 
         return (
             <div className="App">
@@ -83,4 +68,15 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+    news: state.news
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(newsActions, dispatch)
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App)
