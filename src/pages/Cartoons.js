@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navigation from "../components/Navigation/Navigation";
-import Cartoon from "../components/CartoonCard/Cartoon";
+import { Navigation, Cartoon } from "../components/";
 import * as cartoonActions from '../actions/cartoons'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'

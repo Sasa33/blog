@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Navigation from "../components/Navigation/Navigation";
-import Search from '../components/Search/Search'
-import Table from '../components/Table/Table'
+import { Navigation, Search, Table } from "../components/";
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as newsActions from '../actions/news'
